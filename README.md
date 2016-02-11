@@ -1,7 +1,8 @@
-# app
+# NC Weather Tracker
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+This project will track weather related outages for North Carolina. The data is pulled using node.js and parsed into an Angular front-end.
+
+For the node.js fetcher, see (this repository)[https://github.com/asethwright/weatherfetcher/]
 
 ## Build & development
 
