@@ -5,6 +5,8 @@ angular.module('weatherApp')
 
       var _this = this;
       this.timeslots = [];
+      this.current_index = 0;
+      this.current = null;
 
       $http.get('/data.json')
         .success(function(data) {
@@ -14,6 +16,10 @@ angular.module('weatherApp')
         .error(function(msg) {
             console.error("ERROR:" + msg);
         });
+
+      this.setCurrent = function() {
+        this.current = this.timeslots[this.current_index];
+      };
 
     this.filter = function(data) {
         for(var i in data) {

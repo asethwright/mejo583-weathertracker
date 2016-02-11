@@ -1,8 +1,27 @@
 <div class="row">
     <div class="col-xs-12">
         <h3>Select a Date</h3>
-        <select>
-            <option ng-repeat="time in main.timeslots" value="{{$index}}">{{  time.nice_date }}</option>
+        <select class="form-control" ng-model="main.current_index" ng-change="main.setCurrent()">
+            <option ng-repeat="time in main.timeslots" value="{{$index}}">{{ time.nice_date }}</option>
         </select>
+    </div>
+</div>
+
+<div class="row" ng-show="main.current">
+    <div class="col-xs-12">
+
+        <table class="table table-bordered">
+            <tr>
+                <th>County</th>
+                <th>Outages</th>
+                <th>Customers</th>
+            </tr>
+            <tr ng-repeat="county in main.current.counties | orderBy:'-outages'">
+                <td>{{ county.name }}</td>
+                <td>{{ county.outages }}</td>
+                <td>{{ county.total }}</td>
+            </tr>
+        </table>
+
     </div>
 </div>
